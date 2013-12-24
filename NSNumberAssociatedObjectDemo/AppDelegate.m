@@ -8,10 +8,18 @@
 
 #import "AppDelegate.h"
 
+static const char associationKey = 0;
+
 @implementation AppDelegate
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
+    NSNumber* num = @( 1 );
+    NSMutableArray* attachArray = [ NSMutableArray new ];
+    
+    objc_setAssociatedObject( num, &associationKey, attachArray, OBJC_ASSOCIATION_RETAIN_NONATOMIC );
+    
+    
     // Override point for customization after application launch.
     return YES;
 }
